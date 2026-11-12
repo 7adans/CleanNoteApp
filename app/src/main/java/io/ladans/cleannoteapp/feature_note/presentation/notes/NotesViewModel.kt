@@ -65,7 +65,7 @@ class NotesViewModel @Inject constructor(
         _getNotesJob?.cancel()
 
         _getNotesJob = noteUseCase.getNotes(noteOrder).onEach {
-                notes -> _state.value.copy(
+                notes -> _state.value = state.value.copy(
                     notes = notes,
                     noteOrder = noteOrder
                 )
